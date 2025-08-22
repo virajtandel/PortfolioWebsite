@@ -1,0 +1,1602 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vCard - Personal Portfolio</title>
+
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+    /* Splash screen covering full screen */
+    #splash-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      opacity: 1;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    /* Centered content container */
+    .centered-content {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Text styling - centered by default */
+    .splash-text {
+      position: absolute;
+      z-index: 4;
+      text-align: center;
+      color: white;
+      opacity: 1;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .welcome-text {
+      font-size: clamp(1.5rem, 5vw, 3rem);
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    .name-text {
+      font-size: clamp(1.2rem, 3vw, 2rem);
+    }
+
+    /* Image container */
+    .image-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Base image styles */
+    .splash-image {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    /* Initial image with grayscale */
+    #initial-image {
+      z-index: 1;
+      filter: grayscale(100%);
+      transition: filter 3.5s ease-in-out; 
+    }
+
+    /* Reveal image */
+    #reveal-image {
+      z-index: 2;
+      clip-path: inset(0 100% 0 0);
+      transition: clip-path 3.5s ease-in-out;
+    }
+
+    /* Fade-out effect */
+    #splash-screen.fade-out {
+      opacity: 0;
+      pointer-events: none;
+    }
+</style>
+
+</head>
+
+<body>
+
+  <div id="splash-screen">
+  <div class="centered-content">
+    <div class="splash-text">
+      <div class="welcome-text">Welcome To Portfolio Website!</div>
+      <div class="name-text">Viraj Tandel</div>
+    </div>
+    <div class="image-container">
+  <!-- Initial Image -->
+  <picture>
+    <source media="(max-width: 768px)" srcset="./assets/images/peakpx__new3.jpg">
+    <source media="(max-width: 1024px)" srcset="./assets/images/dev.jpg">
+    <img id="initial-image" class="splash-image" src="./assets/images/dev.jpg" alt="Welcome">
+  </picture>
+
+  <!-- Reveal Image -->
+  <picture>
+    <source media="(max-width: 768px)" srcset="./assets/images/peakpx__new3.jpg">
+    <source media="(max-width: 1024px)" srcset="./assets/images/dev.jpg">
+    <img id="reveal-image" class="splash-image" src="./assets/images/dev.jpg" alt="Reveal">
+  </picture>
+</div>
+  </div>
+</div>
+
+
+  <!--
+    - #MAIN
+  -->
+
+  <main>
+
+    <!--
+      - #SIDEBAR
+    -->
+
+    <aside class="sidebar" data-sidebar>
+
+      <div class="sidebar-info">
+
+        <figure class="avatar-box">
+          <img src="./assets/images/my-avatar.png" alt="Viraj Tandel" width="80" style="border-radius: 20px;">
+        </figure>
+
+        <div class="info-content">
+          <h1 class="name" title="Viraj Tandel">VIRAJ TANDEL</h1>
+
+          <p class="title">Database & BI Developer @DHL <br></p>
+          
+
+          <!-- <p class="title" style="margin-top: 10px;"><button style="color: deepskyblue; ">Resume</button></p> -->
+           <p class="title" style="margin-top: 10px; background-color:#1690b9;cursor: pointer;">
+            <a href="./assets/images/VIRAJ_TANDEL_RESUME.pdf"
+               download="VIRAJ_TANDEL_RESUME.pdf"
+               style="text-decoration: none;">
+              <button style="color: whitesmoke; font-weight: bold ; display: flex; align-items: center; gap: 8px;">
+                Download Resume
+              </button>
+            </a>
+           </p>
+
+        </div>
+
+
+        
+
+        <button class="info_more-btn" data-sidebar-btn>
+          <span>Show Contacts</span>
+
+          <ion-icon name="chevron-down"></ion-icon>
+        </button>
+
+      </div>
+
+      <div class="sidebar-info_more">
+
+        <div class="separator"></div>
+
+        <ul class="contacts-list">
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <a href="mailto:virajtan60@gmail.com"><ion-icon name="mail-outline" style="color: aqua;"></ion-icon></a>
+            </div>
+
+            <div class="contact-info">
+              <a href="mailto:virajtan60@gmail.com"><p class="contact-title">Email</p></a>
+
+              <a href="mailto:virajtan60@gmail.com" class="contact-link">virajtan60@gmail.com</a>
+            </div>
+
+          </li>
+
+          
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Location</p>
+
+              <address>Sion- Mumbai, Maharashtra</address>
+            </div>
+
+          </li>
+
+        </ul>
+
+                <div class="separator"></div> 
+
+        <ul class="social-list">
+
+          <li class="social-item">
+            <a href="https://www.hackerrank.com/profile/virajtan60" class="social-link" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/65/HackerRank_logo.png"
+             alt="HackerRank"
+            style="width: 26px; height: 26px;">
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="https://www.linkedin.com/in/viraj-tandel-119390193/" class="social-link" target="_blank">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png"
+                alt="LinkedIn"
+                  style="
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background-color: rgb(55, 53, 53);
+           
+                box-sizing: border-box;">
+            </a>
+          </li>
+
+          <li class="social-item">
+             <a href="https://leetcode.com/u/Viraj_Tandel/" class="social-link" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png"
+                alt="LeetCode"
+                style="
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background-color: rgb(116, 115, 115);
+                box-sizing: border-box;">
+            </a>
+          </li>
+
+          <li class="social-item">
+              <a href="https://medium.com/@virajtan60" class="social-link" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Medium_logo_Monogram.svg"
+                alt="Medium"
+                style="
+                width: 22px;
+                height: 22px;
+                border-radius: 50%;
+                background-color: rgb(72, 71, 71);
+                box-sizing: border-box;">
+              </a>
+          </li>
+
+          <!-- <li class="social-item">
+            <a href="#" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li> -->
+
+        </ul>
+
+      </div>
+
+    </aside>
+
+
+
+
+
+    <!--
+      - #main-content
+    -->
+
+    <div class="main-content">
+
+      <!--
+        - #NAVBAR
+      -->
+
+      <nav class="navbar">
+
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <button class="navbar-link  active" data-nav-link>About</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Experience</button>
+          </li>
+          
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Projects</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Blog</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Contact</button>
+          </li>
+
+        </ul>
+
+      </nav>
+
+
+
+
+
+      <!--
+        - #ABOUT
+      -->
+
+      <article class="about  active" data-page="about">
+
+        <header>
+          <h2 class="h2 article-title">About me</h2>
+        </header>
+
+        <section class="about-text">
+          <p>
+            I'm a detail-obsessed <strong>BI & Database Engineer</strong> with over 4 years of professional experience designing scalable data solutions, 
+            optimizing SQL performance, and delivering impactful business intelligence systems. I’ve worked with organizations like <strong>Tata 
+            Consultancy Services</strong> and <strong>DHL</strong>, where I engineered <strong>high-performance reporting pipelines</strong>, 
+            automated <strong>SSRS and Power BI dashboards</strong>, and reduced query times by over 45%.          
+          </p>
+
+          <p>
+            Whether it’s building <strong>ETL pipelines in Python</strong>, designing <strong>dimensional data models</strong> in <strong>PostgreSQL or SQL Server</strong>, or 
+            deploying dashboards in <strong>Power BI and Qlik Sense</strong>, I thrive on solving real-world business problems with data. 
+            My technical toolkit includes <strong>SQL, Python, Docker, Jenkins, Dynatrace, and Grafana</strong>— applied across projects 
+            involving <strong>performance monitoring, automation, and data-driven decision making</strong>.
+          </p>
+          
+            <B>
+              <i>
+              <p>‣ I love working cross-functionally, translating messy data into actionable insights.</p>
+              <p>‣ I’m collaborative, analytical, and solutions-driven.</p>
+              <p>‣ I ask "how can we make this faster, smarter, and more useful?"</p>
+              </i>
+            </B>
+          
+          
+          <p>
+            Outside the code, I’m the <strong>co-founder of the NGO "Aaroha Giving Wings"</strong>, where I manage events, coordinate volunteers, 
+            and lead people — applying the same mindset I bring to tech: structured, impactful, and people-focused.
+          </p>
+          <p>
+            I don’t just work with data — <strong>I build with it, think through it</strong>, and most of all, <strong>believe in what it can unlock.</strong>
+          </p>
+
+
+        </section>
+
+
+        <!--
+          - service
+        -->
+
+        <section class="service">
+
+          <h3 class="h3 service-title">What Am I Skilled At?</h3>
+
+          <ul class="service-list">
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./assets/images/BiRepo.png" alt="design icon" width="50">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Business Intelligence & Reporting</h4>
+
+                <p class="service-item-text">
+                  Translates raw data into clear, decision-ready dashboards and reports.
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./assets/images/DB.png" alt="Database Design & Optimization" width="50">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Database Design & Optimization</h4>
+
+                <p class="service-item-text">
+                  Designs high-performance databases with optimized SQL and robust structures.
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./assets/images/ETL.png"  alt="ETL & Data Engineering" width="50">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">ETL & Data Engineering</h4>
+
+                <p class="service-item-text">
+                  Builds reliable pipelines that transform data into actionable intelligence
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./assets/images/monitor.png" alt="Monitoring & Automation" width="50">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Monitoring & Automation</h4>
+
+                <p class="service-item-text">
+                  Automates workflows and keeps systems running smooth, smart, and fast.
+                </p>
+              </div>
+
+            </li>
+
+          </ul>
+
+        </section>
+
+
+        <!--
+          - testimonials
+        -->
+
+        <section class="testimonials">
+
+          <h3 class="h3 testimonials-title">Certfications</h3>
+
+          <ul class="testimonials-list has-scrollbar">
+
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
+
+                <figure class="testimonials-avatar-box">
+                  <img src="./assets/images/powerBI.png" alt="Power BI Data Analyst" width="60" data-testimonials-avatar>
+                </figure>
+
+                <h4 class="h4 testimonials-item-title" data-testimonials-title>Power BI Data Analyst</h4>
+
+                <div class="testimonials-text" data-testimonials-text>
+                  <p> 
+                    As part of the Microsoft Power BI Data Analyst Specialization, 
+                    I completed multiple real-world projects simulating business scenarios 
+                    to develop strong hands-on skills in Power BI reporting, data modeling, and dashboard design. 
+                    
+</p> 
+<br>
+<p>Key Contributions:</p>
+<h5 style="color: aliceblue;">1. Designed and published interactive dashboards using Power BI Desktop and Power BI Service</h5>
+<h5 style="color: aliceblue;">2. Performed data transformation using Power Query and created measures using DAX</h5>
+<h5 style="color: aliceblue;">3. Built data models (Star Schema) to support analytical use cases with optimized performance</h5>
+<h5 style="color: aliceblue;">4. Applied best practices in data visualization, including KPIs, slicers, and dynamic visuals</h5>
+<h5 style="color: aliceblue;">5. Delivered insights through clean, business-aligned reports tailored for executive decision-making</h5>
+<br>
+
+<p>Tools Used: Power BI Desktop, Power BI Service, Power Query, DAX, Excel, Sample Business Datasets</p>
+
+                  </p>
+                </div>
+
+              </div>
+            </li>
+
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
+
+                <figure class="testimonials-avatar-box">
+                  <img src="./assets/images/GCP.png" alt="GCP" width="60" data-testimonials-avatar>
+                </figure>
+
+                <h4 class="h4 testimonials-item-title" data-testimonials-title>Google Cloud Spec</h4>
+
+                <div class="testimonials-text" data-testimonials-text>
+                  <p>
+                    Completed hands-on courses in the Google Cloud Fundamentals Specialization, gaining practical skills in app 
+                    development, infrastructure setup, and container orchestration. Designed and deployed scalable, secure apps with GCP.
+                  </p>
+                  <br>
+<p>Key Contributions:</p>
+<br>
+<h5 style="color: aliceblue;">1. Built and deployed cloud-native apps using Google App Engine and Cloud Run</h5>
+<h5 style="color: aliceblue;">2. Managed and monitored containerized applications using Google Kubernetes Engine (GKE)</h5>
+<h5 style="color: aliceblue;">3. Designed secure, scalable infrastructure using VPCs, IAM roles, and Cloud Storage</h5>
+<h5 style="color: aliceblue;">4. Integrated security best practices into application components to enhance cloud resilience</h5>
+<h5 style="color: aliceblue;">5. Developed working knowledge of CI/CD pipelines, logging, and monitoring tools in GCP</h5>
+<br>
+<p style="color: aliceblue;">
+  <strong>Tools & Platforms:</strong> Google Cloud Platform, GKE, App Engine, Cloud Storage, IAM, Kubernetes, Docker, CI/CD, VPC, Cloud Console
+</p>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
+
+                <figure class="testimonials-avatar-box">
+                  <img src="./assets/images/pm1.png" alt="Google Project Management" width="60" data-testimonials-avatar>
+                </figure>
+
+                <h4 class="h4 testimonials-item-title" data-testimonials-title>Google PM Specialization</h4>
+
+                <div class="testimonials-text" data-testimonials-text>
+                  <p>Google Project Management Specialization provided practical training in agile workflows, 
+                    stakeholder communication, project planning, and risk mitigation. Led simulated end-to-end projects 
+                    aligned with industry standards such as PMI and Scrum.</p> <br>
+
+<p>Key Contributions:</p>
+
+<h5 style="color: aliceblue;">1. Created structured project plans with defined scope, timeline, and deliverables</h5>
+<h5 style="color: aliceblue;">2. Applied agile and waterfall methodologies to manage project workflows</h5>
+<h5 style="color: aliceblue;">3. Conducted risk assessments and implemented mitigation strategies</h5>
+<h5 style="color: aliceblue;">4. Collaborated with stakeholders to align goals, expectations, and communication plans</h5>
+<h5 style="color: aliceblue;">5. Tracked key performance indicators to ensure on-time, high-quality delivery</h5>
+
+<br>
+
+<p style="color: aliceblue;">
+  <strong>Tools & Concepts:</strong> Agile/Scrum Framework, Gantt Charts, RACI Matrix, Risk Management Plans, Project Charters, 
+  Work Breakdown Structure (WBS), Stakeholder Analysis
+</p>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
+
+                <figure class="testimonials-avatar-box">
+                  <img src="./assets/images/webdev.png" alt="Front End development" width="60" data-testimonials-avatar>
+                </figure>
+
+                <h4 class="h4 testimonials-item-title" data-testimonials-title>Front End development</h4>
+
+                <div class="testimonials-text" data-testimonials-text>
+                  <p>
+  HTML, CSS, and JavaScript for Web Developers course provided foundational training in responsive web design, 
+  DOM manipulation, and client-side scripting. Developed interactive, mobile-friendly web pages using semantic HTML, 
+  modern CSS, and dynamic JS.
+</p>
+
+<br>
+
+<p>Key Contributions:</p>
+
+<h5 style="color: aliceblue;">1. Developed fully responsive web pages using semantic HTML5 and CSS3, ensuring accessibility and cross-device compatibility</h5>
+<h5 style="color: aliceblue;">2. Applied Flexbox layout techniques and media queries to implement mobile-first designs and adaptive layouts</h5>
+<h5 style="color: aliceblue;">3. Leveraged JavaScript for DOM manipulation, dynamic content rendering, and interactive UI components</h5>
+<h5 style="color: aliceblue;">4. Integrated best practices in front-end architecture, including separation of concerns, clean code structure, and maintainable CSS</h5>
+<h5 style="color: aliceblue;">5. Built and deployed a capstone single-page application simulating a restaurant website with dynamic content and responsive behavior</h5>
+
+<br>
+
+<p style="color: aliceblue;">
+  <strong>Tools & Concepts:</strong> HTML5, CSS3, Flexbox, Media Queries, JavaScript, DOM Manipulation, GitHub, GitHub Desktop, Responsive Web Design
+</p>
+
+                </div>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </section>
+
+
+        <!--
+          - testimonials modal
+        -->
+
+        <div class="modal-container" data-modal-container>
+
+          <div class="overlay" data-overlay></div>
+
+          <section class="testimonials-modal">
+
+            <button class="modal-close-btn" data-modal-close-btn>
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+
+            <div class="modal-img-wrapper">
+              <figure class="modal-avatar-box">
+                <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="80" data-modal-img>
+              </figure>
+
+              <img src="./assets/images/certificate-svgrepo-com.svg" alt="quote icon">
+            </div>
+
+            <div class="modal-content">
+
+              <h4 class="h3 modal-title" data-modal-title> </h4>
+
+              <time datetime="2021-06-14"> </time>
+
+              <div data-modal-text>
+                <p>
+                  Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
+                  lot of experience
+                  and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
+                  consectetur adipiscing
+                  elit, seds do et eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
+              </div>
+
+            </div>
+
+          </section>
+
+        </div>
+
+
+        <!--
+          - clients
+        -->
+
+        <section class="clients">
+
+          <h3 class="h3 clients-title">Technical Expertise</h3>
+
+          <ul class="clients-list has-scrollbar">
+            
+            <li class="clients-item">
+              <a>
+                <img src="./assets/images/SQLlogo2-removebg-preview.png" alt="client logo">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a>
+                <img src="./assets/images/power-bi-logo-business-intelligence-font-data-png-favpng-rMHDH9SAbEZ5sA16EZ9B9siGS-removebg-preview.png" alt="client logo">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a>
+                <img src="./assets/images/pythonlogo2-removebg-preview.png" alt="client logo">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a>
+                <img src="./assets/images/front_end-removebg-preview.png" alt="client logo">
+              </a>
+            </li>
+
+
+            <li class="clients-item">
+              <a>
+                <img src="./assets/images/qlik-removebg-preview.png" alt="client logo">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a>
+                <img src="./assets/images/AWSlogo-removebg-preview.png" alt="client logo">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a>
+                <img src="./assets/images/git-removebg-preview.png" alt="client logo">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a>
+                <img src="./assets/images/SSRS-removebg-preview.png" alt="client logo">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a>
+                <img src="./assets/images/jenkindocker-removebg-preview.png" alt="client logo">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a>
+                <img src="./assets/images/mysql-removebg-preview.png" alt="client logo">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a>
+                <img src="./assets/images/SQL_server-removebg-preview.png" alt="client logo">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a>
+                <img src="./assets/images/data_model-removebg-preview.png" alt="client logo">
+              </a>
+            </li>
+
+            
+
+          </ul>
+
+        </section>
+
+      </article>
+
+
+
+
+
+      <!--
+        - #RESUME
+      -->
+
+      <article class="resume" data-page="experience">
+
+        <header>
+          <h2 class="h2 article-title">Experience</h2>
+        </header>
+
+<section class="timeline">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="briefcase-outline"></ion-icon>
+            </div>
+
+            <h3 class="h3">DHL</h3>
+          </div>
+
+          <ol class="timeline-list">
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Expert- BI & Database Developer</h4>
+
+              <span>Aug 2024- Present</span>
+              <br>
+
+            <ol class="timeline-list">
+            <li class="timeline-item">
+              
+              <p class="timeline-text">
+                Conducted in-depth performance analysis to identify SQL and database-level 
+                bottlenecks, optimizing queries and objects to achieve a 15% improvement in execution time and overall reporting efficiency
+              </p>
+            </li>
+            <li class="timeline-item">
+              
+              <p class="timeline-text">
+                Engineered scalable database solutions from ER diagrams, leveraging advanced 
+                SQL to automate report generation and ensure alignment with evolving stakeholder requirements
+              </p>
+            </li>
+            <li class="timeline-item">
+              
+              <p class="timeline-text">
+                Developed and delivered precise, client-specific reports using SSRS and Power BI paginated reports, 
+                resulting in a 40% reduction in enhancement requests and improved stakeholder confidence
+              </p>
+            </li>
+            <li class="timeline-item">
+              
+              <p class="timeline-text">
+                Designed and deployed 15+ interactive dashboards in Power BI and Qlik Sense, enhancing real-time 
+                data visibility and reducing ad hoc reporting requests by 50% across business units
+              </p>
+            </li>
+
+            </ol>
+
+            </li>
+
+
+          </ol>
+
+        </section>
+
+
+        <section class="timeline">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="briefcase-outline"></ion-icon>
+            </div>
+
+            <h3 class="h3">TCS</h3>
+          </div>
+
+          <ol class="timeline-list">
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Software Engineer– Data & Reporting Systems</h4>
+
+              <span>June 2021- May 2024</span>
+              <br>
+
+            <ol class="timeline-list">
+            <li class="timeline-item">
+              
+              <p class="timeline-text">
+                Designed scalable dimensional data models (Star/Snowflake) to support 
+                high-performance reporting, aligning technical solutions with evolving business requirements.
+              </p>
+            </li>
+            <li class="timeline-item">
+              
+              <p class="timeline-text">
+                Developed scalable database systems by building optimized stored procedures, user-defined functions, 
+                triggers, and complex views, improving code reusability and reducing redundancy across reporting layers.
+              </p>
+            </li>
+            <li class="timeline-item">
+              
+              <p class="timeline-text">
+                Improved query speed by 45% via SQL Server tuning, boosting system performance.
+              </p>
+            </li>
+            <li class="timeline-item">
+              
+              <p class="timeline-text">
+                Automated SSRS report delivery with Jenkins and Docker, improving efficiency by 60%, 
+                and leveraged Dynatrace for accelerated debugging, reducing issue resolution time by 20%.
+              </p>
+            </li>
+            <li class="timeline-item">
+              
+              <p class="timeline-text">
+                Enabled proactive monitoring with Dynatrace and Grafana, reducing incidents by 55% and alerts by 35%.
+              </p>
+            </li>
+
+            </ol>
+
+            </li>
+
+
+          </ol>
+
+        </section>
+
+        <!--
+        <section class="skill">
+
+          <h3 class="h3 skills-title">My skills</h3>
+
+          <ul class="skills-list content-card">
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">Web design</h5>
+                <data value="80">80%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 80%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">Graphic design</h5>
+                <data value="70">70%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 70%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">Branding</h5>
+                <data value="90">90%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 90%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">WordPress</h5>
+                <data value="50">50%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 50%;"></div>
+              </div>
+
+            </li>
+
+          </ul>
+
+        </section>-->
+
+      </article>
+
+
+      <!--
+        - #PORTFOLIO
+      -->
+
+      <article class="portfolio" data-page="projects">
+
+        <header>
+          <h2 class="h2 article-title">Projects</h2>
+        </header>
+
+        <section class="projects">
+
+          <ul class="filter-list">
+
+            <li class="filter-item">
+              <button class="active" data-filter-btn>All</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>Web development</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>BI & Reporting</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>Database Design</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>ETL & Data Engineering</button>
+            </li>
+
+            
+
+          </ul>
+
+          <div class="filter-select-box">
+
+            <button class="filter-select" data-select>
+
+              <div class="select-value" data-selecct-value>Select category</div>
+
+              <div class="select-icon">
+                <ion-icon name="chevron-down"></ion-icon>
+              </div>
+
+            </button>
+
+            <ul class="select-list">
+
+              <li class="select-item">
+  <button data-select-item>All</button>
+</li>
+
+<li class="select-item">
+  <button data-select-item>BI & Reporting</button>
+</li>
+
+<li class="select-item">
+  <button data-select-item>Database Design</button>
+</li>
+
+<li class="select-item">
+  <button data-select-item>Web development</button>
+</li>
+
+<li class="select-item">
+  <button data-select-item>ETL & Data Engineering</button>
+</li>
+
+
+
+            </ul>
+
+          </div>
+
+          <ul class="project-list">
+
+            <li class="project-item  active" data-filter-item data-category="web development">
+              <a href="https://www.aarohagivingwings.org/" target="_blank">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/ng.jpg" alt="task manager" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Aaroha NGO </h3>
+
+                <p class="project-category">Web Development</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="web development">
+              <a href="https://virajtandel.github.io/ERdiagramCreator_DBscriptGenerator/" target="_blank">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/er1.png" alt="finance" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">ER Diagram Creator</h3>
+
+                <p class="project-category">Web development</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="web development">
+              <a href="https://virajtandel.github.io/virajtandelweatherapptrial/" target="_blank">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/weatherapp1.jpg" alt="fundo" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Weather App</h3>
+
+                <p class="project-category">Web Development</p>
+
+              </a>
+            </li>
+
+
+            <li class="project-item  active" data-filter-item data-category="database design">
+              <a href="https://virajtandel.github.io/ERdiagramCreator_DBscriptGenerator/" target="_blank">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/ERDB.jpg" alt="orizon" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">ER Diagram Creator And DB script genarator</h3>
+
+                <p class="project-category">Database Design</p>
+
+              </a>
+            </li>
+
+            
+
+            <li class="project-item  active" data-filter-item data-category="web development">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/resto1.jpg" alt="brawlhalla" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Restaurant- Web page</h3>
+
+                <p class="project-category">Web Development</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="bi & reporting">
+              <a href="http://v1raj/Reports/report/Test/Untitled" target="_blank">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/ucldata1.jpg" alt="dsm." loading="lazy">
+                </figure>
+
+                <h3 class="project-title">UCL data With SSRS</h3>
+
+                <p class="project-category">BI & Reporting</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="bi & reporting">
+              <a href="https://virajtandel.github.io/HBGORISalesDashboard/" target="_blank">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-1.jpg" alt="metaspark" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">HB Gori Sales Dashboard</h3>
+
+                <p class="project-category">BI & Reporting</p>
+
+              </a>
+            </li>
+
+             <li class="project-item  active" data-filter-item data-category="etl & data engineering">
+              <a href="https://virajtandel.github.io/ETL_Project/" target="_blank">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/ETL.jpg" alt="summary" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Sample ETL Project</h3>
+
+                <p class="project-category">ETL & Data Engineering</p>
+
+              </a>
+            </li>
+
+             
+
+            <!-- <li class="project-item  active" data-filter-item data-category="web development">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-9.png" alt="arrival" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Arrival</h3>
+
+                <p class="project-category">Web development</p>
+
+              </a>
+            </li>   -->
+
+          </ul>
+
+        </section>
+
+      </article>
+
+
+
+
+      <!--
+        - #BLOG
+      -->
+
+      <article class="blog" data-page="blog">
+
+        <header>
+          <h2 class="h2 article-title">Blog</h2>
+        </header>
+
+        <section class="blog-posts">
+
+          <ul class="blog-posts-list">
+
+            <li class="blog-post-item">
+              <a href="https://medium.com/@virajtan60/how-bad-data-decisions-lead-to-bad-business-decisions-e873d6df5028" target="_blank">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog1.jpg" alt="How Bad Data Decisions Lead to Bad Business Decisions" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <!-- <p class="blog-category">Data Strategy</p> -->
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Data Strategy</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Business Risks from Data</h3>
+
+                  <p class="blog-text">
+                    How Bad Data Decisions Lead to Bad Business Decisions
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="https://medium.com/@virajtan60/understanding-indexing-in-sql-server-the-good-the-bad-and-the-ugly-1f0961621345" target="_blank">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog22.jpg" alt="Understanding Indexing in SQL Server- The Good, the Bad, and the Ugly" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <!-- <p class="blog-category">Query Optimization</p> -->
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Query Optimization</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Smart SQL Indexing Guide</h3>
+
+                  <p class="blog-text">
+                    Understanding Indexing in SQL Server- The Good, the Bad, & the Ugly!
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="https://medium.com/@virajtan60/the-hidden-costs-of-bad-database-design-how-to-avoid-them-f286e487313a" target="_blank">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog3.jpg" alt="The Hidden Costs of Bad Database Design: How to Avoid Them?" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <!-- <p class="blog-category">Database Design</p> -->
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Database Design</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Bad Database Design Costs</h3>
+
+                  <p class="blog-text">
+                    The Hidden Costs of Bad Database Design: How to Avoid Them?
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="https://medium.com/@virajtan60/ssrs-vs-power-bi-vs-qlik-sense-choosing-the-right-bi-tool-cf61ec4dc870" target="_blank">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/bitool1.jpg" alt="BI Tools Head-to-Head" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <!-- <p class="blog-category">Category</p> -->
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">BI & Reporting Tools</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">BI Tools Head-to-Head</h3>
+
+                  <p class="blog-text">
+                    SSRS vs. Power BI vs. Qlik Sense: Choosing the Right BI Tool!
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="https://medium.com/@virajtan60/sql-query-optimization-techniques-to-speed-up-your-database-queries-1a5cda34d6a6" target="_blank">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/SQLopt.jpg" alt="SQL Query Optimization: Techniques to Speed Up Your Database Queries" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <!-- <p class="blog-category">Design</p> -->
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Query Optimization</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Speed Up Database Queries</h3>
+
+                  <p class="blog-text">
+                    SQL Query Optimization: Techniques to Speed Up Your Database Queries!
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="https://medium.com/@virajtan60/the-hidden-gems-of-sql-lesser-known-functions-you-should-be-using-548d32b1d4b2" target="_blank">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/sqll.png" alt="The Hidden Gems of SQL: Lesser-Known Functions You Should Be Using!" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <!-- <p class="blog-category">Design</p> -->
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Advanced SQL</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Hidden Gems of SQL</h3>
+
+                  <p class="blog-text">
+                    The Hidden Gems of SQL: Lesser-Known Functions You Should Be Using!
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+
+            <li class="blog-post-item">
+              <a href="https://medium.com/@virajtan60/database-security-best-practices-protecting-your-data-from-attacks-76af35d231eb" target="_blank">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/DBsec.png" alt="Database Security Best Practices: Protecting Your Data From Attacks." loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <!-- <p class="blog-category">Design</p> -->
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Database Security</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">DB Security Best Practices</h3>
+
+                  <p class="blog-text">
+                    Database Security Best Practices: Protecting Your Data From Attacks.
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+                        <li class="blog-post-item">
+              <a href="https://medium.com/@virajtan60/database-security-best-practices-protecting-your-data-from-attacks-76af35d231eb" target="_blank">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/rdbms (2).png" alt="Mastering ER Diagrams: A Step-by-Step Guide to Building and Using Them Effectively" loading="lazy" style="filter: grayscale(0.4) sepia(0.8) hue-rotate(265deg) saturate(1.4) brightness(0.9) contrast(1.2);">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <!-- <p class="blog-category">Design</p> -->
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Database Design</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Mastering ER Diagrams</h3>
+
+                  <p class="blog-text">
+                   Mastering ER Diagrams: A Step-by-Step Guide to Building and Using Them Effectively!
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+                        <li class="blog-post-item">
+              <a href="https://medium.com/@virajtan60/choosing-the-right-database-sql-server-vs-postgresql-vs-mysql-c51b2a3e9521" target="_blank">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/SQLcompare.png" alt="Choosing the Right Database: SQL Server vs. PostgreSQL vs. MySQL" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <!-- <p class="blog-category">Design</p> -->
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Database- Architecture</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Inside SQL Database Engine</h3>
+
+                  <p class="blog-text">
+                    Choosing the Right Database: SQL Server vs. PostgreSQL vs. MySQL
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+          </ul>
+
+        </section>
+
+      </article>
+
+
+
+
+
+      <!--
+        - #CONTACT
+      -->
+
+      <article class="contact" data-page="contact">
+
+        <header>
+          <h2 class="h2 article-title">Contact</h2>
+        </header>
+
+        <section class="mapbox" data-mapbox>
+          <figure>
+            <iframe
+              src="https://www.google.com/maps?q=Mumbai+Suburban,+Maharashtra,+India&output=embed"
+              width="400" height="300" loading="lazy"></iframe>
+          </figure>
+        </section>
+
+
+
+        <!-- <section class="contact-form">
+
+          <h3 class="h3 form-title">Contact Form</h3>
+
+          <form action="#" class="form" data-form>
+
+            <div class="input-wrapper">
+              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
+
+              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
+            </div>
+
+            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
+
+            <button class="form-btn" type="submit" disabled data-form-btn>
+              <ion-icon name="paper-plane"></ion-icon>
+              <span>Send Message</span>
+            </button>
+
+          </form>
+
+        </section> -->
+
+        <section class="contact-form">
+          <h3 class="h3 form-title">Contact Form</h3>
+          
+          <p class="form-text" style="color: aliceblue;">
+              For any inquiries or to initiate a conversation, please complete the form below. 
+              I will respond at the earliest opportunity! I appreciate your interest.        </p>
+          <br>
+
+        <form action="https://formspree.io/f/xeozjjnb" method="POST" class="form" data-form>
+
+  <div class="input-wrapper">
+    <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
+    <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
+  </div>
+
+  <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
+
+  <button class="form-btn" type="submit" disabled data-form-btn>
+    <ion-icon name="paper-plane"></ion-icon>
+    <span>Send Message</span>
+  </button>
+
+</form>
+</section>
+
+        
+
+      </article>
+
+    </div>
+
+  </main>
+
+
+
+
+
+
+  <!--
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+  
+
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const splash = document.getElementById('splash-screen');
+    const initialImage = document.getElementById('initial-image');
+    const revealImage = document.getElementById('reveal-image');
+    const overlapImage = document.getElementById('overlap-image');
+    const splashText = document.getElementsByClassName('welcome-text');
+    
+    // Animation timeline (total 3 seconds)
+    setTimeout(() => initialImage.style.filter = 'grayscale(0%)', 100); // Start grayscale removal at 0.3s
+    
+    setTimeout(() => { overlapImage.style.opacity = '1';
+
+    },500); // Show overlap at 2s
+    
+    setTimeout(() => {
+      splash.classList.add('fade-out');
+      splash.addEventListener('transitionend', () => splash.remove());
+       // Fade out text at 2.5s
+    }, 4000); // Complete fade out at 3s
+  });
+</script>
+
+</body>
+
+</html>
