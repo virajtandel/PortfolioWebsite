@@ -264,23 +264,9 @@ article.active {
 .has-scrollbar::-webkit-scrollbar-thumb {
   background: var(--orange-yellow-crayola);
   border-radius: 5px;
-  min-height: 20px; /* Add this for iOS */
-  min-width: 20px;  /* Add this for iOS */
 }
 
 .has-scrollbar::-webkit-scrollbar-button { width: 20px; }
-
-/* iOS-specific enhancements */
-@supports (-webkit-appearance: none) {
-  .has-scrollbar::-webkit-scrollbar {
-    -webkit-appearance: none;
-  }
-  
-  .has-scrollbar::-webkit-scrollbar:horizontal {
-    height: 7px; /* Slightly larger for better visibility on iOS */
-  }
-}
-
 
 .content-card {
   position: relative;
